@@ -9,6 +9,6 @@ const Home: React.FC = () => {
       <Text style={styles.text}>Hello world</Text>
     </View>
   );
-}
+};
 
 export { Home };

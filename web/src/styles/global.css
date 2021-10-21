@@ -24,6 +24,7 @@
 body {
   color: #E1E1E6;
   background-color: #121214;
+  overflow-x: hidden;
 }
 
 a {

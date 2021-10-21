@@ -11,6 +11,7 @@ type User = {
 type AuthContextData = {
   user: User | null;
   signInUrl: string;
+  signOut: () => void;
 };
 
 type AuthProviderProps = {
@@ -43,6 +44,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setUser(responseUser);
   }
 
+  function signOut() {
+    setUser(null);
+    localStorage.removeItem('@textshare:token');
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('@textshare:token');
 
@@ -69,7 +75,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signInUrl, user }}>
+    <AuthContext.Provider value={{ signInUrl, user, signOut }}>
       {children}
     </AuthContext.Provider>
   );

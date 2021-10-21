@@ -6,7 +6,9 @@ import {
 } from '@expo-google-fonts/roboto';
 import AppLoading from 'expo-app-loading';
 
+import { StatusBar } from 'expo-status-bar';
 import { Home } from './src/screens/Home';
+import { COLORS } from './src/theme';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,5 +20,10 @@ export default function App() {
     return <AppLoading />;
   }
 
-  return <Home />;
+  return (
+    <>
+      <StatusBar style="light" backgroundColor={COLORS.BLACK_SECONDARY} />
+      <Home />
+    </>
+  );
 }

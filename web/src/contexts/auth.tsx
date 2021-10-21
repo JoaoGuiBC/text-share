@@ -41,6 +41,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     localStorage.setItem('@textshare:token', token);
 
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+
     setUser(responseUser);
   }
 

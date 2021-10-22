@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { MotiView } from 'moti';
 
 import { UserPhoto } from '../UserPhoto';
 
@@ -16,7 +17,12 @@ export type MessageProps = {
 
 export function Message({ id, text, user }: MessageProps) {
   return (
-    <View style={styles.container}>
+    <MotiView
+      from={{ opacity: 0, translateY: -50 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      transition={{ type: 'spring', duration: 700 }}
+      style={styles.container}
+    >
       <Text style={styles.message}>{text}</Text>
 
       <View style={styles.footer}>
@@ -24,6 +30,6 @@ export function Message({ id, text, user }: MessageProps) {
 
         <Text style={styles.useName}>{user.name}</Text>
       </View>
-    </View>
+    </MotiView>
   );
 }

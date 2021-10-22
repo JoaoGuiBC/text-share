@@ -10,7 +10,7 @@ import { styles } from './styles';
 export function Logo() {
   return (
     <MaskedView
-      style={{ height: 35, width: 100 }}
+      style={{ flex: 1, maxWidth: 100 }}
       maskElement={<Text style={styles.title}>TEXTSHARE</Text>}
     >
       <LinearGradient

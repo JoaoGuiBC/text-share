@@ -42,7 +42,9 @@
         "no-use-before-define": "off",
         "jsx-a11y/label-has-associated-control": "off",
         "react/style-prop-object": "off",
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/no-extraneous-dependencies": "off"
     },
     "settings": {
         "import/resolver": {

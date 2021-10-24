@@ -7,16 +7,18 @@ import { Logo } from '../Logo';
 import { UserPhoto } from '../UserPhoto';
 
 export function Header() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   return (
     <View style={styles.container}>
       <Logo />
 
       <View style={styles.logoutButton}>
-        <TouchableOpacity>
-          <Text style={styles.logoutText}>Sair</Text>
-        </TouchableOpacity>
+        {!!user && (
+          <TouchableOpacity onPress={signOut}>
+            <Text style={styles.logoutText}>Sair</Text>
+          </TouchableOpacity>
+        )}
 
         <UserPhoto imageUri={user?.avatar_url} />
       </View>

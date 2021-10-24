@@ -6,10 +6,10 @@ import {
 } from '@expo-google-fonts/roboto';
 import { Anton_400Regular } from '@expo-google-fonts/anton';
 import AppLoading from 'expo-app-loading';
-
 import { StatusBar } from 'expo-status-bar';
+
 import { Home } from './src/screens/Home';
-import { COLORS } from './src/theme';
+import { AuthProvider } from './src/hooks/Auth';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,9 +23,9 @@ export default function App() {
   }
 
   return (
-    <>
-      <StatusBar style="light" backgroundColor={COLORS.BLACK_SECONDARY} />
+    <AuthProvider>
+      <StatusBar style="light" translucent backgroundColor="transparent" />
       <Home />
-    </>
+    </AuthProvider>
   );
 }

@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "TextShare",
-    "slug": "TextShare",
+    "name": "textshare",
+    "slug": "textshare",
     "version": "1.0.0",
+    "scheme": "textshare",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,7 +23,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#121214"
       }
     },
     "web": {

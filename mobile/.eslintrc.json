@@ -46,7 +46,8 @@
         "react/jsx-props-no-spreading": "off",
         "import/no-extraneous-dependencies": "off",
         "react/destructuring-assignment": "off",
-        "import/no-unresolved": "off"
+        "import/no-unresolved": "off",
+        "react/jsx-no-bind": "off"
     },
     "settings": {
         "import/resolver": {

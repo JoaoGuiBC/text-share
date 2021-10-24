@@ -78,10 +78,7 @@ function AuthProvider({ children }: AuthProviderProps) {
           String(ASYNC_STORAGE_USER),
           JSON.stringify(responseUser)
         );
-        await AsyncStorage.setItem(
-          String(ASYNC_STORAGE_TOKEN),
-          JSON.stringify(token)
-        );
+        await AsyncStorage.setItem(String(ASYNC_STORAGE_TOKEN), token);
 
         setUser(responseUser);
         console.log(responseUser);

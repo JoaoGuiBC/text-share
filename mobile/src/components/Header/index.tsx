@@ -1,12 +1,14 @@
 import React from 'react';
-
 import { Text, TouchableOpacity, View } from 'react-native';
 
+import { useAuth } from '../../hooks/Auth';
 import { styles } from './styles';
 import { Logo } from '../Logo';
 import { UserPhoto } from '../UserPhoto';
 
 export function Header() {
+  const { user } = useAuth();
+
   return (
     <View style={styles.container}>
       <Logo />
@@ -16,7 +18,7 @@ export function Header() {
           <Text style={styles.logoutText}>Sair</Text>
         </TouchableOpacity>
 
-        <UserPhoto imageUri="https://randomuser.me/api/portraits/men/32.jpg" />
+        <UserPhoto imageUri={user?.avatar_url} />
       </View>
     </View>
   );

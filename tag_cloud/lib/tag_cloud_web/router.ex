@@ -7,6 +7,8 @@ defmodule TagCloudWeb.Router do
 
   scope "/api", TagCloudWeb do
     pipe_through :api
+
+    post "/message", MessagesControler, :create
   end
 
   # Enables LiveDashboard only for development

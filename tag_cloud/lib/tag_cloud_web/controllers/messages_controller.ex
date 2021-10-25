@@ -1,10 +1,25 @@
 defmodule TagCloudWeb.MessagesController do
   use TagCloudWeb, :controller
 
-  def create(conn, params) do
-    IO.inspect(params)
+  alias TagCloud.Message
+  alias TagCloud.Messages.Create
 
+  def create(conn, params) do
+    params
+    |> Create.call()
+    |> handle_create(conn)
+  end
+
+  defp handle_create({:ok, %Message{} = message}, conn) do
     conn
-    |> text("Recebi a requisição")
+    |> put_status(:created)
+    |> render("create.json", message: message)
+  end
+
+  defp handle_create({:error, %{result: result, status: status}}, conn) do
+    conn
+    |> put_status(status)
+    |> put_view(TagCloudWeb.ErrorView)
+    |> render("error.json", result: result)
   end
 end

@@ -15,9 +15,10 @@ defmodule TagCloud.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: TagCloud.PubSub},
       # Start the Endpoint (http/https)
-      TagCloudWeb.Endpoint
+      TagCloudWeb.Endpoint,
       # Start a worker by calling: TagCloud.Worker.start_link(arg)
       # {TagCloud.Worker, arg}
+      TagCloud.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

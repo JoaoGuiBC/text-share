@@ -17,6 +17,11 @@ config :tag_cloud, TagCloudWeb.Endpoint,
   pubsub_server: TagCloud.PubSub,
   live_view: [signing_salt: "6wyGnrRh"]
 
+config :tag_cloud, TagCloud.Scheduler,
+  jobs: [
+    {"0 0 * * *", {TagCloud.Tags.Count, :call, []}}
+  ]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

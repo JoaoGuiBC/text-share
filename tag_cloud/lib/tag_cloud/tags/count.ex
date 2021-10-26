@@ -6,7 +6,7 @@ defmodule TagCloud.Tags.Count do
   def call do
     Get.today_messages()
     |> Task.async_stream(fn message -> count_words(message.message) end)
-    |> Enum.reduce(%{}, fn element, acc -> sum_values(elem, acc) end)
+    |> Enum.reduce(%{}, fn element, acc -> sum_values(element, acc) end)
   end
 
   defp count_words(message) do
@@ -16,6 +16,6 @@ defmodule TagCloud.Tags.Count do
   end
 
   defp sum_values({:ok, map1}, map2) do
-    Map.merge(map1, map1, fn _key, value1, value2, -> value1 + value2 end)
+    Map.merge(map1, map1, fn _key, value1, value2 -> value1 + value2 end)
   end
 end
